@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>backbone html</title>
+</head>
+<body>
+    <script src="../js/jquery-3.1.0.js"></script>
+    <script src="../js/underscore.js"></script>
+    <script src="../js/backbone.js"></script>
+    <script>
+    (function ($) {
+        var Book = Backbone.Model.extend({
+            defaults: {
+                title: 'default'
+            },
+            initialize: function(){
+
+            }
+        });
+
+        var BookShelf = Backbone.Collection.extend({
+            model: Book
+        });
+
+        var book1 = new Book({title: 'book1'});
+        var book2 = new Book({title: 'book2'});
+        var book3 = new Book({title: 'book3'});
+
+        var bookShelf = new BookShelf([book1, book2, book3]);
+
+        bookShelf.remove(book3);
+        bookShelf.each(function(book) {
+            alert(book.get('title'));
+        });
+    })(jQuery);
+    </script>
+</body>
+</html>

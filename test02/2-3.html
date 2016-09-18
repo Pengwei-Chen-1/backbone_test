@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>backbone html</title>
+</head>
+<body>
+    <script src="../js/jquery-3.1.0.js"></script>
+    <script src="../js/underscore.js"></script>
+    <script src="../js/backbone.js"></script>
+    <script>
+    (function ($) {
+        var Man = Backbone.Model.extend({
+            initialize: function() {
+                alert('hi, you create me!');
+            },
+            defaults: {
+                name: 'Jack',
+                age: 28
+            },
+            aboutMe: function() {
+                return 'my name is: ' + this.get('name') + ', and my age is: ' + this.get('age') + '.';
+            }
+        });
+
+        var man = new Man;
+        alert(man.aboutMe());
+    })(jQuery);
+    </script>
+</body>
+</html>
